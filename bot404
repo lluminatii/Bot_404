@@ -1,0 +1,42 @@
+#include <BotFCTUC.h>
+
+BotFCTUC Bot404 = BotFCTUC();
+int16_t Distance[3];
+int16_t IR;
+uint16_t RGBC[3];
+
+
+void setup() {
+  // Pin setup
+  pinMode(BUTTON_PIN, INPUT);
+  pinMode(GREEN_LED_PIN, OUTPUT);
+  pinMode(RED_LED_PIN, OUTPUT);
+  pinMode(LED_ON, 
+  pinMode(LEFT_SONAR_TRIGGER, OUTPUT);
+  pinMode(LEFT_SONAR_ECHO, INPUT);
+  pinMode(CENTER_SONAR_TRIGGER, OUTPUT);
+  pinMode(CENTER_SONAR_ECHO, INPUT);
+  pinMode(RIGHT_SONAR_TRIGGER, OUTPUT);
+  pinMode(RIGHT_SONAR_ECHO, INPUT);
+  pinMode(FLAME_SENSOR_PIN, INPUT);
+  pinMode(FLAME_SENSOR_SCALE_1, INPUT);
+  pinMode(FLAME_SENSOR_SCALE_2, INPUT);
+  pinMode(FLAME_SENSOR_SCALE_3, INPUT);
+  pinMode(FAN_PIN, OUTPUT);
+  pinMode(MOTOR_A_IN1, OUTPUT);
+  pinMode(MOTOR_A_IN2, OUTPUT);
+  pinMode(MOTOR_B_IN1, OUTPUT);
+  pinMode(MOTOR_B_IN1, OUTPUT);
+
+  while(ButtonPressed()==false){}
+  
+  bot404.begin();
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  bot404.GetColor(RGBC);
+  Serial.print(RGB[0]," ",RGB[1], " ",RGB[2]," ",RGB[3]);
+  Serial.println();
+  delay(100);
